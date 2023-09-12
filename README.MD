@@ -216,8 +216,6 @@ ros2 launch px4_ros gps_data_listener.launch.py
 ## Examples
 
 
-<a href="https://www.youtube.com/watch?v=vjxWFC-qre8">
-  <img src="https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DvjxWFC-qre8" alt="PX4 ROS 2 Communication Example" title="PX4 ROS 2 Communication Example"/>
-</a>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vjxWFC-qre8?si=_Ks8DzDbEbh4Cnji" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/vjxWFC-qre8/0.jpg)](https://www.youtube.com/watch?v=vjxWFC-qre8)
