@@ -23,7 +23,6 @@ public:
 			std::cout << "alt_ellipsoid: " << msg->altitude_ellipsoid_m << std::endl;
 			std::cout << "s_variance_m_s: " << msg->s_variance_m_s << std::endl;
 			std::cout << "c_variance_rad: " << msg->c_variance_rad << std::endl;
-			std::cout << "fix_type: " << msg->fix_type << std::endl;
 			std::cout << "eph: " << msg->eph << std::endl;
 			std::cout << "epv: " << msg->epv << std::endl;
 			std::cout << "hdop: " << msg->hdop << std::endl;
@@ -45,9 +44,9 @@ public:
 			output_file.seekp(0, std::ios::end);
 			if (output_file.tellp() == 0) {
 				// The file is empty, so write the headers
-				output_file << "ts,lat,lon,alt,alt_ellipsoid,s_variance_m_s,c_variance_rad,fix_type,eph,epv,hdop,vdop,noise_per_ms,vel_m_s,vel_n_m_s,vel_e_m_s,vel_d_m_s,cog_rad,vel_ned_valid,timestamp_time_relative,time_utc_usec,satellites_used,heading,heading_offset" << std::endl;
+				output_file << "ts,lat,lon,alt,alt_ellipsoid,s_variance_m_s,c_variance_rad,eph,epv,hdop,vdop,noise_per_ms,vel_m_s,vel_n_m_s,vel_e_m_s,vel_d_m_s,cog_rad,vel_ned_valid,timestamp_time_relative,time_utc_usec,satellites_used,heading,heading_offset" << std::endl;
 			}
-			output_file << msg->timestamp << "," << msg->latitude_deg << "," << msg->longitude_deg << "," << msg->altitude_msl_m << "," << msg->altitude_ellipsoid_m << "," << msg->s_variance_m_s << "," << msg->c_variance_rad << "," << msg->fix_type << "," << msg->eph << "," << msg->epv << "," << msg->hdop << "," << msg->vdop << "," << msg->noise_per_ms << "," << msg->vel_m_s << "," << msg->vel_n_m_s << "," << msg->vel_e_m_s << "," << msg->vel_d_m_s << "," << msg->cog_rad << "," << msg->vel_ned_valid << "," << msg->timestamp_time_relative << "," << msg->time_utc_usec << "," << msg->satellites_used << "," << msg->heading << "," << msg->heading_offset << std::endl;
+			output_file << msg->timestamp << "," << msg->latitude_deg << "," << msg->longitude_deg << "," << msg->altitude_msl_m << "," << msg->altitude_ellipsoid_m << "," << msg->s_variance_m_s << "," << msg->c_variance_rad << "," << msg->eph << "," << msg->epv << "," << msg->hdop << "," << msg->vdop << "," << msg->noise_per_ms << "," << msg->vel_m_s << "," << msg->vel_n_m_s << "," << msg->vel_e_m_s << "," << msg->vel_d_m_s << "," << msg->cog_rad << "," << msg->vel_ned_valid << "," << msg->timestamp_time_relative << "," << msg->time_utc_usec << "," << msg->satellites_used << "," << msg->heading << "," << msg->heading_offset << std::endl;
 
 		});
 	}

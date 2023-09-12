@@ -163,6 +163,7 @@ QGroundControl is used to plan the simulated mission that the drone should do.
 
 From the plan tab it is possible to plan the mission adding waypoints to realize the path the drone should follow during its mission, as can be seen below.
 The Region Of Interest (ROI) waypoint is used to add the region that should be inspected from the drone during its mission. 
+The final [missionplan](mission_Messina_Final.plan) is shared in order to have the same results.
 
 ![](utils/Planning.png)
 
@@ -214,4 +215,5 @@ ros2 launch px4_ros gps_data_listener.launch.py
 
 ## Examples
 
-WIP
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/vjxWFC-qre8/0.jpg)](https://www.youtube.com/watch?v=vjxWFC-qre8)
