@@ -215,7 +215,10 @@ ros2 launch px4_ros gps_data_listener.launch.py
 
 ## Examples
 
+### Drone Mission example:
+[![Drone Mission Example](https://img.youtube.com/vi/FNrJGI6hZiY/0.jpg)](https://www.youtube.com/watch?v=FNrJGI6hZiY)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vjxWFC-qre8?si=_Ks8DzDbEbh4Cnji" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+### ROS 2 Communication Example to acquire sensors data:
+[![ROS 2 and PX4 Communication Example](https://img.youtube.com/vi/vjxWFC-qre8/0.jpg)](https://www.youtube.com/watch?v=vjxWFC-qre8)
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/vjxWFC-qre8/0.jpg)](https://www.youtube.com/watch?v=vjxWFC-qre8)
+
