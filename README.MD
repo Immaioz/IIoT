@@ -221,4 +221,5 @@ ros2 launch px4_ros gps_data_listener.launch.py
 ### ROS 2 Communication Example to acquire sensors data:
 [![ROS 2 and PX4 Communication Example](https://img.youtube.com/vi/vjxWFC-qre8/0.jpg)](https://www.youtube.com/watch?v=vjxWFC-qre8)
 
-
+### Digital Twin simulation in Matlab:
+[![Digital Twin simulation in Matlab](https://img.youtube.com/vi/OKn5Yn9OdYQ/0.jpg)](https://www.youtube.com/watch?v=OKn5Yn9OdYQ)
