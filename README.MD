@@ -1,13 +1,14 @@
 # Industrial Internet of Things Project
 The goal of this project is to create a simulation of a drone that inspects a portion of a predefined territory to verify through cameras any plant diseases in the monitored area.  
-This project is divided into two parts, this repo focuses on the simulation of the drone, including a sort of digital twin approach, in which data from all sensors and GPS are acquired using ROS 2 and stored into two .csv files with the purpose to be further processed.
+This project is divided into two parts, this repo focuses on the simulation of the drone, including a sort of digital twin approach, in which data from all sensors and GPS are acquired using ROS 2 and stored into two .csv files with the purpose to be further processed in Matlab creating a simulation of a "Digital Twin".
 The cameras and the identification of the plants' disease are managed in a different project.
 
 The project uses different tools to achieve its goal:
 * PX4-Autopilot;
-* Ubuntu 20.04 on VM;
+* Ubuntu 20.04 VM;
 * ROS 2 Foxy;
 * uXRCE-DDS;
+* Matlab;
 
 In this repo will be described the installation of each tool and the tutorial to get the desidered results.
 
@@ -30,9 +31,9 @@ cd PX4-Autopilot
 make px4_sitl gazebo-classic
 ```
 
-![](utils/PX4_Starting.png)
+![](utils/images/PX4_Starting.png)
 
-![](utils/Gazebo.png)
+![](utils/images/Gazebo.png)
 
 ### ROS2 Foxy
 
@@ -100,13 +101,13 @@ To check if the installation is has ended successfully it is possible to run a s
 ```bash
 ros2 run demo_nodes_cpp talker
 ```
-![](utils/talker1.png)
+![](utils/images/talker1.png)
 
 
 ```bash
 ros2 run demo_nodes_py listener
 ```
-![](utils/Listener1.png)
+![](utils/images/Listener1.png)
 
 ### Setup ROS 2 and PX4 interactions
 
@@ -128,7 +129,7 @@ The agent should be started with the following command:
 ```bash
 MicroXRCEAgent udp4 -p 8888
 ```
-![](utils/uXRCE.png) 
+![](utils/images/uXRCE.png) 
 
 ## Usage      
 
@@ -141,10 +142,11 @@ In order to initialize the simulation to the right position is necessary to set 
 cd PX4-Autopilot
 export PX4_HOME_LAT=38.25905277824533
 export PX4_HOME_LON=15.595626222658453
+export PX4_HOME_ALT=0
 ```
 This will initialize the position to the Department of Engineering of the University of Messina.
 
-![](utils/Coordinates.png)
+![](utils/images/Coordinates.png)
 
 It is possible to start the simulation for PX4 with gazebo using the following command:
 
@@ -159,13 +161,13 @@ The _HEADLESS=1_ option allows to run the simulation without the GUI, with the p
 
 QGroundControl is used to plan the simulated mission that the drone should do.
 
-![](utils/Mission4.png)
+![](utils/images/Mission4.png)
 
 From the plan tab it is possible to plan the mission adding waypoints to realize the path the drone should follow during its mission, as can be seen below.
 The Region Of Interest (ROI) waypoint is used to add the region that should be inspected from the drone during its mission. 
-The final [missionplan](mission_Messina_Final.plan) is shared in order to have the same results.
+The final [missionplan](utils/mission_Messina_Final.plan) is shared in order to have the same results.
 
-![](utils/Planning.png)
+![](utils/images/Planning.png)
 
 ### ROS2 Interaction with PX4
 
@@ -175,7 +177,6 @@ For the proposed approach the topic selected are SensorCombined and SensorGPS, t
 All other uORB topics can be checked into the [uORB Message Reference](https://docs.px4.io/main/en/msg_docs/)
 
 In order to acquire messages from the PX4 simulation a subscriber node is required, for this reason in the [src](src) are present two directories containing the two types of messages and the code for the subscribers nodes respectively.
-
 
 ## Analysis of the code
 
@@ -211,6 +212,32 @@ Launch command for the GPS position data:
 ```bash
 ros2 launch px4_ros gps_data_listener.launch.py
 ```
+
+## Matlab Simulation
+In the [matlab_sim](matlab_sim) folder are contained the [livescript](matlab_sim/Digital_Twin.mlx) and the relative [csv](matlab_sim/subsampled.csv) which has been subsampled using the appropriate python [script](utils/subsample.py), this is done due to computation time constrains, being that with the available hardware the simulation runs about 50 pt/h, which makes almost impossible to run a simulation on the entire .csv, that contains over 3000 points.
+
+### Digital Twin Livescript
+The livescript starts by acquiring the data from .csv 
+
+```matlab
+T = readtable("subsampled.csv");
+```
+
+Then the data in processed in order to visualize the starting point of the mission in both 2D and 3D map
+
+![](utils/images/run4.png)
+
+and then also the track that the drone should follow is displayed.
+
+![](utils/images/run6.png)
+
+Then the track of the drone is visualized in a topographic chart, while in the 3D visualization a view of what a possible camera could record is displayed.   
+In this simulation the coordinates of the drone are displayed as the point moves from the start location to the end location, also the distance covered from the start location is displayed. 
+![](utils/images/sim.png)
+
+In the same livescript the data retrieved from the csv are also processed to get the cumulative distance covered by the drone, including taking into account also altitude changes.
+
+![](utils/images/distance.png)
 
 
 ## Examples
