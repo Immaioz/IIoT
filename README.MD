@@ -5,6 +5,7 @@ The cameras and the identification of the plants' disease are managed in a diffe
 
 The project uses different tools to achieve its goal:
 * PX4-Autopilot;
+* QGroundControl
 * Ubuntu 20.04 VM;
 * ROS 2 Foxy;
 * uXRCE-DDS;
