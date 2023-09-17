@@ -23,6 +23,7 @@ Clone the PX4 source code from the [repository](https://github.com/PX4/PX4-Autop
 
 ```bash
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
 ```
 #### First build 
 To validate the system before proceeding with the installation of ROS2 and other components we can build the SITL (Software In The Loop) with the default drone. 
@@ -208,11 +209,15 @@ Launch command for all the sensors data:
 ros2 launch px4_ros sensor_combined_listener.launch.py
 ```
 
+![](utils/images/sensori_out_1.png)
+
+
 Launch command for the GPS position data:
 
 ```bash
 ros2 launch px4_ros gps_data_listener.launch.py
 ```
+![](utils/images/gps_out.png)
 
 ## Matlab Simulation
 In the [matlab_sim](matlab_sim) folder are contained the [livescript](matlab_sim/Digital_Twin.mlx) and the relative [csv](matlab_sim/subsampled.csv) which has been subsampled using the appropriate python [script](utils/subsample.py), this is done due to computation time constrains, being that with the available hardware the simulation runs about 50 pt/h, which makes almost impossible to run a simulation on the entire .csv, that contains over 3000 points.
