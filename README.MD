@@ -12,6 +12,7 @@ The project uses different tools to achieve its goal:
 * Matlab;
 
 In this repo will be described the installation of each tool and the tutorial to get the desidered results.
+The report of the project in Italian can be found [here](Relazione.pdf) 
 
 ## Installation
 
