@@ -11,8 +11,8 @@ The project uses different tools to achieve its goal:
 * uXRCE-DDS;
 * Matlab;
 
-In this repo will be described the installation of each tool and the tutorial to get the desidered results.
-The report of the project in Italian can be found [here](Relazione.pdf) 
+In this repo will be described the installation of each tool and the tutorial to get the desidered results.  
+The report of the project in Italian can be found [here](Relazione.pdf).
 
 ## Installation
 
